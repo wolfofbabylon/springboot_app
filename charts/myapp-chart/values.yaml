@@ -1,0 +1,7 @@
+# values.yaml
+image:
+  repository: "localhost:5000/myapp"
+  tag: "latest"
+service:
+  type: ClusterIP
+  port: 8080
