@@ -38,7 +38,7 @@ pipeline {
                 ],
                 credentialsId: 'nexus-credentials', 
                 groupId: 'com.example', 
-                nexusUrl: 'http://localhost:8081', // Ensure this URL is correct
+                nexusUrl: 'localhost:8081', // Ensure this URL is correct
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'maven-releases', 
