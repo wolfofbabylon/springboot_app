@@ -4,7 +4,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>myapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version> <!-- Changed from 0.0.1-SNAPSHOT to 0.0.1 -->
     <packaging>jar</packaging>
 
     <name>myapp</name>
@@ -40,21 +40,18 @@
     </distributionManagement>
 
     <dependencies>
-        <!-- Core Spring Boot starter dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
         
-        <!-- Spring Boot Web starter for REST APIs -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
         
-        <!-- Spring Boot Test starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -65,7 +62,6 @@
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -76,7 +72,6 @@
                 </configuration>
             </plugin>
             
-            <!-- Surefire Plugin for Test Execution and Reports -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -86,7 +81,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Jar Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -96,7 +90,6 @@
                 </configuration>
             </plugin>
 
-            <!-- SonarQube Plugin (Optional: Only if SonarQube is used in the project) -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
