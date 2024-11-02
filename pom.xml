@@ -14,10 +14,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.5.4</spring-boot.version> <!-- Added Spring Boot version property -->
+        <spring-boot.version>2.5.4</spring-boot.version>
     </properties>
 
-    <!-- Specify repositories for dependencies, if needed -->
     <repositories>
         <repository>
             <id>central</id>
@@ -29,7 +28,6 @@
         </repository>
     </repositories>
 
-    <!-- Define Nexus configuration for artifact deployment -->
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
@@ -42,23 +40,31 @@
     </distributionManagement>
 
     <dependencies>
-        <!-- Example dependencies (add your project dependencies here) -->
+        <!-- Core Spring Boot starter dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+        
+        <!-- Spring Boot Web starter for REST APIs -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        
+        <!-- Spring Boot Test starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring-boot.version}</version> <!-- Version added for spring-boot-starter-test -->
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -69,7 +75,6 @@
                 </configuration>
             </plugin>
             
-            <!-- Maven Jar Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -79,7 +84,6 @@
                 </configuration>
             </plugin>
 
-            <!-- SonarQube Plugin (Optional: Only if SonarQube is used in the project) -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
