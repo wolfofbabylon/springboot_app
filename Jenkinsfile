@@ -25,7 +25,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(SONARQUBE_SERVER) {  // Changed 'SonarQube' to use the environment variable
+                withSonarQubeEnv(SONARQUBE_SERVER) {
                     sh 'mvn sonar:sonar -Dsonar.projectKey=myapp -Dsonar.login=$SONARQUBE_TOKEN'
                 }
             }
@@ -34,15 +34,15 @@ pipeline {
             steps {
                 sh 'mvn clean package -DskipTests'
                 nexusArtifactUploader artifacts: [
-                    [artifactId: 'myapp', classifier: '', file: 'target/myapp-0.0.1-SNAPSHOT.jar', type: 'jar']
+                    [artifactId: 'myapp', classifier: '', file: 'target/myapp-0.0.1.jar', type: 'jar'] // Ensure the version is correct here
                 ],
                 credentialsId: 'nexus-credentials', 
                 groupId: 'com.example', 
-                nexusUrl: 'localhost:8081', // Ensure this URL is correct
+                nexusUrl: 'localhost:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'maven-releases', 
-                version: '0.0.1-SNAPSHOT'
+                version: '0.0.1' // Changed to fixed release version
             }
         }
         stage('Docker Build & Push') {
