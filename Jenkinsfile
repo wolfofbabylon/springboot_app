@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_REGISTRY = "localhost:8081/repository/docker-local"
+        DOCKER_REGISTRY = "localhost:5000/repository/docker-local"
         KUBECONFIG = "/etc/rancher/k3s/k3s.yaml"
         SONARQUBE_SERVER = 'SonarQube'
         SONARQUBE_TOKEN = credentials('sonarqube-token')
